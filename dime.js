@@ -10,8 +10,7 @@
  * $('.selector').trigger('eventName', data) triggers a custom event on multiple elements.
  * $('.selector').forEach(callback) allows you to iterate over multiple elements.
  *
- * $1 is like $ but only selects the first element (querySelector).
- * $1 supports .on() and .trigger().
+ * $('.selector')[0] picks the first element.
  */
 
 /**
@@ -39,7 +38,6 @@
 
 (function () {
   window.$ = document.querySelectorAll.bind(document);
-  window.$1 = document.querySelector.bind(document);
 
   /**
    * $.forEach(element, index)
