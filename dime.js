@@ -52,9 +52,12 @@
    * $.on('eventName', callback)
    */
   Node.prototype.on = function (name, fn) {
-    this.addEventListener(name, function (event) {
-      fn.call(this, event, event.detail);
-    });
+    var names = name.split(' ');
+    for (var i = 0, l = names.length; i < l; i++) {
+      this.addEventListener(names[i], function (event) {
+        fn.call(this, event, event.detail);
+      });
+    }
   };
 
   NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
