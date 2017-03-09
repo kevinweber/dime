@@ -71,7 +71,7 @@
    */
   Node.prototype.trigger = function (eventName, data) {
     var event = new CustomEvent(eventName, {
-      detail: data || {}
+      detail: data
     });
     this.dispatchEvent(event);
   };
