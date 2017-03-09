@@ -74,4 +74,11 @@
       element.trigger(eventName, data);
     });
   };
+
+  /**
+   * $.find('selector')
+   */
+  Node.prototype.find = function (selector) {
+    return this.querySelectorAll(selector);
+  };
 }());
