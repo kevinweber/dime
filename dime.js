@@ -8,7 +8,7 @@
  * $('.selector') selects multiple elements (querySelectorAll).
  * $('.selector').on('event', callback) attaches an event to multiple elements.
  * $('.selector').trigger('eventName', data) triggers a custom event on multiple elements.
- * $('.selector').forEach(callback) allows you to iterate over multiple elements.
+ * $('.selector').each(callback) allows you to iterate over multiple elements.
  *
  * $('.selector')[0] picks the first element.
  */
@@ -40,9 +40,14 @@
   window.$ = document.querySelectorAll.bind(document);
 
   /**
-   * $.forEach(element, index)
+   * $.each(element, index)
    */
-  NodeList.prototype.__proto__ = Array.prototype;
+  NodeList.prototype.each = function (fn) {
+    var nodes = this;
+    for (var i = 0, l = nodes.length; i < l; i++) {
+      fn.call(nodes[i], i, nodes[i]);
+    }
+  };
 
   /**
    * $.on('eventName', callback)
@@ -52,7 +57,7 @@
   };
 
   NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
-    this.forEach(function (element) {
+    this.each(function (index, element) {
       element.on(name, fn);
     });
   };
@@ -68,7 +73,7 @@
   };
 
   NodeList.prototype.trigger = function (eventName, data) {
-    this.forEach(function (element) {
+    this.each(function (index, element) {
       element.trigger(eventName, data);
     });
   };
