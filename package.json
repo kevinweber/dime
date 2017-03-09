@@ -1,0 +1,22 @@
+{
+  "name": "dime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dime.js",
+  "scripts": {
+    "dist": "uglifyjs --compress --mangle --output dime.min.js -- dime.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinweber/dime.git"
+  },
+  "author": "Kevin Weber",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kevinweber/dime/issues"
+  },
+  "homepage": "https://github.com/kevinweber/dime#readme",
+  "devDependencies": {
+    "uglify-js": "^2.8.10"
+  }
+}
