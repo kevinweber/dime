@@ -3,8 +3,7 @@
  * Uber-micro library for selecting elements and handling custom events.
  *
  * Author: Kevin Weber (http://kevinw.de)
- * Based on bling.js from Paul Irish (https://gist.github.com/paulirish/12fb951a8b893a454b32)
-
+ *
  * $('.selector') selects multiple elements (querySelectorAll).
  * $('.selector').on('event', callback) attaches an event to multiple elements.
  * $('.selector').trigger('eventName', data) triggers a custom event on multiple elements.
@@ -53,7 +52,9 @@
    * $.on('eventName', callback)
    */
   Node.prototype.on = function (name, fn) {
-    this.addEventListener(name, fn);
+    this.addEventListener(name, function (event) {
+      fn.call(this, event, event.detail);
+    });
   };
 
   NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
