@@ -2,14 +2,7 @@
  * DIME.JS
  * Uber-micro library for selecting elements and handling custom events.
  *
- * Author: Kevin Weber (http://kevinw.de)
- *
- * $('.selector') selects multiple elements (querySelectorAll).
- * $('.selector').on('event', callback) attaches an event to multiple elements.
- * $('.selector').trigger('eventName', data) triggers a custom event on multiple elements.
- * $('.selector').each(callback) allows you to iterate over multiple elements.
- *
- * $('.selector')[0] picks the first element.
+ * (c) 2017 - Kevin Weber - http://kevinw.de
  */
 
 /**
