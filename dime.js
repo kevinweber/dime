@@ -53,7 +53,7 @@
     }
   };
 
-  NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn) {
+  NodeList.prototype.on = function (name, fn) {
     this.each(function (index, element) {
       element.on(name, fn);
     });
